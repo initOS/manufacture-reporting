@@ -35,6 +35,7 @@
                            ('product_id','=',False)]"
                     />
                     <field name="location_id" />
+                    <field name="exclude_location_ids" widget="many2many_tags" />
                     <label for="desired_qty" />
                     <div class="o_row">
                         <field name="desired_qty" />
@@ -68,6 +69,8 @@
                         style="width: max-content;"
                     >Set the source location for every component.</p>
                     <br />
+                </group>
+                <group>
                     <group>
                         <field name="product_id" readonly="1" />
                         <field name="bom_id" readonly="1" />
@@ -75,6 +78,11 @@
                             name="location_id"
                             readonly="1"
                             attrs="{'invisible': [('location_id', '=', False)]}"
+                        />
+                        <field
+                            name="exclude_location_ids"
+                            readonly="1"
+                            widget="many2many_tags"
                         />
                         <field name="product_uom_id" groups="uom.group_uom" />
                     </group>
